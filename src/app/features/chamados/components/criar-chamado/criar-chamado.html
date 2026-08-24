@@ -1,0 +1,42 @@
+<button type="button" (click)="alternar()">
+    {{ aberto() ? "Cancelar" : "Criar chamado" }}
+</button>
+
+@if (aberto()) {
+<form class="formulario-chamado" (ngSubmit)="criar()">
+    <label>
+        Título
+        <input name="titulo" [(ngModel)]="dados.titulo" required />
+    </label>
+
+    <label>
+        Descrição
+        <textarea name="descricao" [(ngModel)]="dados.descricao" required></textarea>
+    </label>
+
+    <label>
+        Prioridade
+        <select name="prioridade" [(ngModel)]="dados.prioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+        </select>
+    </label>
+
+    <label>
+        Status
+        <select name="status" [(ngModel)]="dados.status">
+            <option value="aberto">Aberto</option>
+            <option value="em_andamento">Em andamento</option>
+            <option value="concluido">Concluído</option>
+        </select>
+    </label>
+
+    <label>
+        Responsável
+        <input name="responsavel" [(ngModel)]="dados.responsavel" required />
+    </label>
+
+    <button type="submit">Salvar chamado</button>
+</form>
+}

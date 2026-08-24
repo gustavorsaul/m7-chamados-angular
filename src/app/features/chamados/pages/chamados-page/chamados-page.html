@@ -1,0 +1,9 @@
+<main class="container">
+    <h1 class="titulo-pagina">Chamados técnicos</h1>
+    <div class="area-criacao">
+        <app-criar-chamado (chamadoCriado)="adicionarChamado($event)" />
+    </div>
+    <app-filtro-chamados [pesquisa]="pesquisa()" [status]="filtroStatus()" (pesquisaChange)="atualizarPesquisa($event)"
+        (statusChange)="atualizarStatus($event)" />
+    <app-lista-chamados [chamados]="chamadosFiltrados()" [carregando]="carregando()" [erro]="erro()" />
+</main>
